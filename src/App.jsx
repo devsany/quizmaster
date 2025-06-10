@@ -1,18 +1,23 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-// import "./App.css";/
 import Navbar from "./component/Navbar";
 import Home from "./component/Home/Home";
-import RecentPublished from "./component/all_quiz/RecentPublished";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RecentPublishedAnimal from "./component/all_quiz/RecentPublishedAnimal";
+import RecentPubliseQuizAllCard from "./component/RecentPubliseQuizAllCard/RecentPubliseQuizAllCard";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Home />
-
-      <RecentPublished />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/recent-published/animals"
+            element={<RecentPublishedAnimal />}
+          />
+          {/* Add more routes as needed */}
+          {/* <Route path="/quiz/:id" element={<Quiz />} /> */}
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import Navbar from "../Navbar";
+import RecentPubliseQuizAllCard from "../RecentPubliseQuizAllCard/RecentPubliseQuizAllCard";
 
 const Card = ({ title, content, button }) => {
   const cardRef = useRef(null);
@@ -41,92 +43,97 @@ const Card = ({ title, content, button }) => {
 
 const Home = () => {
   return (
-    <div className="ml-[-40px] lg:ml-[-155px] relative  ">
-      <div className=" min-h-screen min-w-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 overflow-hidden">
-        {/* Animated Background SVGs */}
-        <div className="absolute ml-5 inset-0 z-0">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="1">
-                <stop offset="0%" stopColor="#4f46e5" />
-                <stop offset="100%" stopColor="#ec4899" />
-              </linearGradient>
-            </defs>
-            <path
-              fill="none"
-              stroke="url(#gradient)"
-              strokeWidth="2"
-              d="M0 200 Q 300 100 600 200 T 1200 200"
-            >
-              <animate
-                attributeName="d"
-                dur="6s"
-                repeatCount="indefinite"
-                values="
+    <div>
+      <Navbar />
+      {/* <Home /> */}
+      <div className="ml-[-40px] lg:ml-[-155px] relative  ">
+        <div className=" min-h-screen min-w-screen flex items-center justify-center bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 overflow-hidden">
+          {/* Animated Background SVGs */}
+          <div className="absolute ml-5 inset-0 z-0">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gradient" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stopColor="#4f46e5" />
+                  <stop offset="100%" stopColor="#ec4899" />
+                </linearGradient>
+              </defs>
+              <path
+                fill="none"
+                stroke="url(#gradient)"
+                strokeWidth="2"
+                d="M0 200 Q 300 100 600 200 T 1200 200"
+              >
+                <animate
+                  attributeName="d"
+                  dur="6s"
+                  repeatCount="indefinite"
+                  values="
                   M0 200 Q 300 100 600 200 T 1200 200;
                   M0 200 Q 300 300 600 200 T 1200 200;
                   M0 200 Q 300 100 600 200 T 1200 200;
                 "
-              />
-            </path>
-          </svg>
-          <svg
-            className="w-full h-full absolute top-0 left-0 opacity-30"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="50%"
-              cy="50%"
-              r="300"
-              stroke="url(#gradient)"
-              strokeWidth="1"
-              fill="none"
+                />
+              </path>
+            </svg>
+            <svg
+              className="w-full h-full absolute top-0 left-0 opacity-30"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <animate
-                attributeName="r"
-                values="300;350;300"
-                dur="8s"
-                repeatCount="indefinite"
-              />
-            </circle>
-          </svg>
-          <svg
-            className="w-full h-full absolute bottom-0 right-0 opacity-20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="none"
-              stroke="url(#gradient)"
-              strokeWidth="1"
-              d="M0 300 Q 400 100 800 300 T 1600 300"
+              <circle
+                cx="50%"
+                cy="50%"
+                r="300"
+                stroke="url(#gradient)"
+                strokeWidth="1"
+                fill="none"
+              >
+                <animate
+                  attributeName="r"
+                  values="300;350;300"
+                  dur="8s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </svg>
+            <svg
+              className="w-full h-full absolute bottom-0 right-0 opacity-20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <animate
-                attributeName="d"
-                dur="10s"
-                repeatCount="indefinite"
-                values="
+              <path
+                fill="none"
+                stroke="url(#gradient)"
+                strokeWidth="1"
+                d="M0 300 Q 400 100 800 300 T 1600 300"
+              >
+                <animate
+                  attributeName="d"
+                  dur="10s"
+                  repeatCount="indefinite"
+                  values="
                 M0 300 Q 400 100 800 300 T 1600 300;
                 M0 300 Q 400 200 800 300 T 1600 300;
                 M0 300 Q 400 100 800 300 T 1600 300;
               "
-              />
-            </path>
-          </svg>
-        </div>
+                />
+              </path>
+            </svg>
+          </div>
 
-        <div className="relative z-10 w-full max-w-4xl lg:max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card
-            title="Create Quiz"
-            content="Create interactive quizzes in minutes with our online quiz maker."
-            button="Create Quiz"
-          />
-          <Card
-            title="Quizard AI"
-            content="Create quizzes instantly with AI — just enter a topic and get engaging questions in seconds!"
-            button="Generate Quiz"
-          />
+          <div className="relative z-10 w-full max-w-4xl lg:max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card
+              title="Create Quiz"
+              content="Create interactive quizzes in minutes with our online quiz maker."
+              button="Create Quiz"
+            />
+            <Card
+              title="Quizard AI"
+              content="Create quizzes instantly with AI — just enter a topic and get engaging questions in seconds!"
+              button="Generate Quiz"
+            />
+          </div>
         </div>
       </div>
+      <RecentPubliseQuizAllCard />
     </div>
   );
 };
