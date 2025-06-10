@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const quizData = [
@@ -103,26 +103,39 @@ const RecentPublishedAnimal = () => {
   }, 0);
 
   if (showResult) {
+    const correctCount = answers.filter(
+      (a, i) => a === quizData[i].correct
+    ).length;
+
     return (
-      <div className="p-6 max-w-3xl mx-auto text-white">
+      <div className="p-6 max-w-5xl mx-auto text-gray-600">
         <h2 className="text-2xl font-bold mb-6">Quiz Results</h2>
+        <div className="mt-6">
+          <p className="text-lg font-semibold">
+            Correct Answers: {correctCount} / {quizData.length}
+          </p>
+          <h3 className="text-xl font-bold">Total Points: {totalPoints}</h3>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {quizData.map((q, idx) => (
             <div
               key={idx}
-              className={`p-4 mb-4 rounded-lg border-4 border-gray-600 ${
-                answers[idx] === q.correct ? "bg-green-500" : "bg-red-500"
+              className={`p-4 rounded-lg border-4 ${
+                answers[idx] === q.correct
+                  ? "border-green-500 bg-green-100/20"
+                  : "border-red-500 bg-red-100/20"
               }`}
             >
-              <h3 className="font-semibold">
+              <h3 className="font-semibold mb-1">
                 Q{idx + 1}: {q.question}
               </h3>
-              <p>
+              <p className="mb-1">
                 Your answer:{" "}
                 {typeof q.options[answers[idx]] === "object"
                   ? q.options[answers[idx]].text || "[Image Option]"
-                  : q.options[answers[idx]]}{" "}
-                <br />
+                  : q.options[answers[idx]]}
+              </p>
+              <p>
                 Correct answer:{" "}
                 {typeof q.options[q.correct] === "object"
                   ? q.options[q.correct].text || "[Image Option]"
@@ -131,7 +144,6 @@ const RecentPublishedAnimal = () => {
             </div>
           ))}
         </div>
-        <h3 className="text-xl font-bold mt-6">Total Points: {totalPoints}</h3>
       </div>
     );
   }
