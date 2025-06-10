@@ -106,29 +106,31 @@ const RecentPublishedAnimal = () => {
     return (
       <div className="p-6 max-w-3xl mx-auto text-white">
         <h2 className="text-2xl font-bold mb-6">Quiz Results</h2>
-        {quizData.map((q, idx) => (
-          <div
-            key={idx}
-            className={`p-4 mb-4 rounded-lg ${
-              answers[idx] === q.correct ? "bg-green-600" : "bg-red-600"
-            }`}
-          >
-            <h3 className="font-semibold">
-              Q{idx + 1}: {q.question}
-            </h3>
-            <p>
-              Your answer:{" "}
-              {typeof q.options[answers[idx]] === "object"
-                ? q.options[answers[idx]].text || "[Image Option]"
-                : q.options[answers[idx]]}{" "}
-              <br />
-              Correct answer:{" "}
-              {typeof q.options[q.correct] === "object"
-                ? q.options[q.correct].text || "[Image Option]"
-                : q.options[q.correct]}
-            </p>
-          </div>
-        ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {quizData.map((q, idx) => (
+            <div
+              key={idx}
+              className={`p-4 mb-4 rounded-lg border-4 border-gray-600 ${
+                answers[idx] === q.correct ? "bg-green-500" : "bg-red-500"
+              }`}
+            >
+              <h3 className="font-semibold">
+                Q{idx + 1}: {q.question}
+              </h3>
+              <p>
+                Your answer:{" "}
+                {typeof q.options[answers[idx]] === "object"
+                  ? q.options[answers[idx]].text || "[Image Option]"
+                  : q.options[answers[idx]]}{" "}
+                <br />
+                Correct answer:{" "}
+                {typeof q.options[q.correct] === "object"
+                  ? q.options[q.correct].text || "[Image Option]"
+                  : q.options[q.correct]}
+              </p>
+            </div>
+          ))}
+        </div>
         <h3 className="text-xl font-bold mt-6">Total Points: {totalPoints}</h3>
       </div>
     );
