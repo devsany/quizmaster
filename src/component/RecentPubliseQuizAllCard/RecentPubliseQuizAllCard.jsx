@@ -6,6 +6,14 @@ const RecentPubliseQuizAllCard = () => {
   const quizAnimals = () => {
     nav("/recent-published/animals");
   };
+
+  const quizScience = () => {
+    nav("/recent-published/science");
+  };
+
+  const quizSst = () => {
+    nav("/recent-published/sst");
+  };
   return (
     <div>
       <h2>
@@ -34,7 +42,10 @@ const RecentPubliseQuizAllCard = () => {
           <p className="text-gray-600 mb-4">
             Explore the wonders of science with this engaging quiz.
           </p>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+          <button
+            onClick={quizScience}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          >
             Take Quiz
           </button>
         </div>
@@ -44,7 +55,10 @@ const RecentPubliseQuizAllCard = () => {
           <p className="text-gray-600 mb-4">
             Challenge your knowledge of historical events and figures.
           </p>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+          <button
+            onClick={quizSst}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+          >
             Take Quiz
           </button>
         </div>
